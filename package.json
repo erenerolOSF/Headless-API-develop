@@ -1,0 +1,52 @@
+{
+    "name": "headless-api",
+    "description": "OSF Digital Headless API",
+    "version": "1.0.0",
+    "author": "Daniel Anechitoaie <daniel.anechitoaie@osf.digital>",
+    "license": "UNLICENSED",
+    "private": true,
+    "homepage": "https://github.com/OSFDigital/Headless-API#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/OSFDigital/Headless-API.git"
+    },
+    "scripts": {
+        "dev": "next dev --port=3001",
+        "build": "next build",
+        "start": "next start -p $PORT",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --ext .js,.ts --quiet --fix",
+        "type-check": "tsc --project tsconfig.json --pretty --noEmit"
+    },
+    "dependencies": {
+        "@types/dinero.js": "^1.9.0",
+        "ajv": "^8.6.3",
+        "apollo-datasource": "^3.0.3",
+        "apollo-server-micro": "^3.1.2",
+        "class-validator": "^0.13.1",
+        "cookies": "^0.8.0",
+        "dinero.js": "^1.9.1",
+        "graphql": "^15.5.1",
+        "make-fetch-happen": "^9.0.4",
+        "micro": "^9.3.4",
+        "next": "12.1.0",
+        "react": "^17.0.2",
+        "reflect-metadata": "^0.1.13",
+        "stripe": "^8.197.0",
+        "type-graphql": "^1.1.1"
+    },
+    "devDependencies": {
+        "@types/cookies": "^0.7.7",
+        "@types/make-fetch-happen": "^9.0.0",
+        "@types/micro": "^7.3.6",
+        "@types/node": "^16.7.1",
+        "@types/react": "^17.0.40",
+        "@typescript-eslint/eslint-plugin": "^5.1.0",
+        "@typescript-eslint/parser": "^5.1.0",
+        "@vercel/node": "^1.12.1",
+        "eslint": "^8.0.1",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "prettier": "^2.3.2"
+    }
+}

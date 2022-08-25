@@ -1,0 +1,33 @@
+name: "Code Review - Build"
+
+on:
+    pull_request:
+        branches:
+            - "main"
+            - "develop"
+        paths:
+            - "**/*.ts"
+            - "**/*.js"
+jobs:
+    test_pull_requests:
+        runs-on: "ubuntu-latest"
+        steps:
+            - name: "Checkout"
+              uses: "actions/checkout@v2"
+
+            - name: "Setup NodeJS"
+              uses: "actions/setup-node@v1"
+              with:
+                  node-version: "14.x"
+                  registry-url: https://npm.pkg.github.com/
+                  scope: "@osfdigital"
+            - name: "Setup CI"
+              run: |
+                  npm ci
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.projectGithubToken }}
+            - name: "Test if there is no linting errors"
+              run: "npm run lint"
+
+            - name: "Check if Typescript is happy"
+              run: "npm run type-check"
